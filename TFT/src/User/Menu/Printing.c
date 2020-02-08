@@ -323,7 +323,8 @@ void reDrawTime(void)
 }
 
 void reDrawProgress(u8 progress)
-{	  
+{
+  return;
   char buf[5];
   //const GUI_RECT percentageRect = {BED_X, TEMP_Y-3*BYTE_HEIGHT, BED_X+10*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
   const GUI_RECT percentageRect = {progressRect.x0, TEMP_Y-3*BYTE_HEIGHT, BED_X+8*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
@@ -399,6 +400,7 @@ void menuPrinting(void)
       }	
     }            
 
+    //if current or target temp of nozzle will be change then redraw new value. And save drawed value
     if (nowHeat.T[heatGetCurrentToolNozzle()].current != heatGetCurrentTemp(heatGetCurrentToolNozzle()) 
      || nowHeat.T[heatGetCurrentToolNozzle()].target != heatGetTargetTemp(heatGetCurrentToolNozzle()))
     {
@@ -406,6 +408,7 @@ void menuPrinting(void)
       nowHeat.T[heatGetCurrentToolNozzle()].target = heatGetTargetTemp(heatGetCurrentToolNozzle());
       reValueNozzle();	
     }
+
     if (nowHeat.T[BED].current != heatGetCurrentTemp(BED) 
      || nowHeat.T[BED].target != heatGetTargetTemp(BED))
     {
