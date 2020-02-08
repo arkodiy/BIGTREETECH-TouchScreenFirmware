@@ -423,9 +423,9 @@ void menuPrinting(void)
       reDrawTime();
     }
     //Z_AXIS coordinate
-    static COORDINATE tmp;
-    coordinateGetAll(&tmp);
-    GUI_DispFloat(BED_X+BYTE_WIDTH*2,TIME_Y-BYTE_HEIGHT,tmp.axis[Z_AXIS],3,3,LEFT);
+    //static COORDINATE tmp;
+    //coordinateGetAll(&tmp);
+    //GUI_DispFloat(BED_X+BYTE_WIDTH*2,TIME_Y-BYTE_HEIGHT,tmp.axis[Z_AXIS],3,3,LEFT);
     
     key_num = menuKeyGetValue();
     switch(key_num)
