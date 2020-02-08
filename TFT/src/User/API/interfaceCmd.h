@@ -4,7 +4,7 @@
 #include "stdint.h"
 #include "stdbool.h"
 
-#define CMD_MAX_LIST 20
+#define CMD_MAX_LIST 20 //gcode queue length
 #define CMD_MAX_CHAR 100
 
 typedef struct
