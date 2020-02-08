@@ -44,7 +44,7 @@ void menuAutoLeveling(void)
         storeCmd("M48\n");
         break;
       case KEY_ICON_5:
-        storeCmd("M851\n");
+        storeCmd("M206\n");
         infoMenu.menu[++infoMenu.cur] = menuProbeOffset;
         break;      
       case KEY_ICON_6:

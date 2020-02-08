@@ -68,6 +68,7 @@
     #define ES_DISCONNECT           "Desconectar"
     #define ES_BAUDRATE_115200      "115200"
     #define ES_BAUDRATE_250000      "250000"
+    #define ES_BAUDRATE_500000      "500000"
     #define ES_RUNOUT_OFF           "S.Fil.Apagado"
     #define ES_RUNOUT_ON            "S.Fil.Encendido"
     #define ES_SMART_RUNOUT_ON      "Sen.Fil.Encendido"

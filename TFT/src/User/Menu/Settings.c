@@ -75,13 +75,14 @@ LABEL_SETTINGS,
   {ICON_BACK,                 LABEL_BACK},}
 };
 
-#define ITEM_BAUDRATE_NUM 2
+#define ITEM_BAUDRATE_NUM 3
 const ITEM itemBaudrate[ITEM_BAUDRATE_NUM] = {
 // icon                       label
   {ICON_BAUDRATE,             LABEL_BAUDRATE_115200},
   {ICON_BAUDRATE,             LABEL_BAUDRATE_250000},
+  {ICON_BAUDRATE,             LABEL_BAUDRATE_500000},
 };
-const  u32 item_baudrate[ITEM_BAUDRATE_NUM] = {115200, 250000};
+const  u32 item_baudrate[ITEM_BAUDRATE_NUM] = {115200, 250000, 500000};
 static u8  item_baudrate_i = 0;
 
 void menuSettings(void)

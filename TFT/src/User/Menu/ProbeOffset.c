@@ -79,6 +79,11 @@ void menuProbeOffset(void)
   initElements(KEY_ICON_5);
   menuDrawPage(&probeOffsetItems);
   showProbeOffset();
+
+  #if LCD_ENCODER_SUPPORT
+    encoderPosition = 0;    
+  #endif
+
   while(infoMenu.menu[infoMenu.cur] == menuProbeOffset)
   {
     key_num = menuKeyGetValue();
@@ -87,14 +92,14 @@ void menuProbeOffset(void)
       case KEY_ICON_0:
         if(probe_offset_value - elementsUnit.ele[elementsUnit.cur] > PROBE_OFFSET_MIN_VALUE)
         {
-          if(storeCmd("M851 Z%.2f\n",probe_offset_value-elementsUnit.ele[elementsUnit.cur]))
+          if(storeCmd("M206 Z%.2f\n",probe_offset_value-elementsUnit.ele[elementsUnit.cur]))
             probe_offset_value -= elementsUnit.ele[elementsUnit.cur];
         }
         break;
       case KEY_ICON_3:
         if(probe_offset_value + elementsUnit.ele[elementsUnit.cur] < PROBE_OFFSET_MAX_VALUE)
         {
-          if(storeCmd("M851 Z%.2f\n",probe_offset_value+elementsUnit.ele[elementsUnit.cur]))
+          if(storeCmd("M206 Z%.2f\n",probe_offset_value+elementsUnit.ele[elementsUnit.cur]))
             probe_offset_value += elementsUnit.ele[elementsUnit.cur];
         }
         break;
@@ -107,13 +112,21 @@ void menuProbeOffset(void)
         menuDrawItem(&probeOffsetItems.items[key_num], key_num);
         break;
       case KEY_ICON_6:
-        if(storeCmd("M851 Z%.2f\n",0))
+        if(storeCmd("M206 Z%.2f\n",0))
           probe_offset_value = 0.0f;
         break;
       case KEY_ICON_7:
         infoMenu.cur--;
         break;
       default :
+        #if LCD_ENCODER_SUPPORT
+          if(encoderPosition)
+          {
+            probe_offset_value += elementsUnit.ele[elementsUnit.cur]*encoderPosition;
+            encoderPosition = 0;    
+          }
+          LCD_LoopEncoder();
+        #endif
         break;
       }
     if(now != probe_offset_value)

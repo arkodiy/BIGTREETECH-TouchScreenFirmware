@@ -68,6 +68,7 @@
     #define DE_DISCONNECT           "Trennen"
     #define DE_BAUDRATE_115200      "115200"
     #define DE_BAUDRATE_250000      "250000"
+    #define DE_BAUDRATE_500000      "500000"
     #define DE_RUNOUT_OFF           "Runout AUS"
     #define DE_RUNOUT_ON            "Runout EIN"
     #define DE_SMART_RUNOUT_ON      "Smart EIN"

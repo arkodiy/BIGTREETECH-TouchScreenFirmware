@@ -1,4 +1,3 @@
-//my first change
 #ifndef _CONFIGRATION_H_
 #define _CONFIGRATION_H_
 
@@ -30,7 +29,7 @@
 //===========================================================================
 
 // Show BTT bootscreen when starting up
-#define SHOW_BTT_BOOTSCREEN
+//#define SHOW_BTT_BOOTSCREEN
 
 // TFT mode color
 #define TITLE_BACKGROUND_COLOR      BLACK  // Title background color // 0xD928
@@ -67,19 +66,19 @@
 // Default move speed mm/min
 #define DEFAULT_SPEED_MOVE      3000
 #define SPEED_MOVE_SLOW         1000
-#define SPEED_MOVE_FAST         5000
+#define SPEED_MOVE_FAST         6000
 // Extrude speed mm/min
 #define EXTRUDE_SLOW_SPEED      60
 #define EXTRUDE_NORMAL_SPEED    600
-#define EXTRUDE_FAST_SPEED      1200
+#define EXTRUDE_FAST_SPEED      2400
 
 // Size of machine
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 300
+#define Y_MAX_POS 300
+#define Z_MAX_POS 300
 
 // Specify a pause position as { X, Y, Z_raise }
 #define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
@@ -92,7 +91,7 @@
 #define NOZZLE_PAUSE_Z_FEEDRATE     600  // (mm/min) Z axis feedrate
 
 // Send G29 for auto bed leveling
-#define AUTO_BED_LEVELING
+//#define AUTO_BED_LEVELING
 #ifdef AUTO_BED_LEVELING
   // Enable this will send "M500" after "G29" to store leveling value
   // and send "M420 S1" to enable leveling state after startup
@@ -126,7 +125,7 @@
 
 // Enable alternative Move Menu Buttons Layout matching the direction of actual printer axis.
 // update the icons from alternate icon folder
-#define ALTERNATIVE_MOVE_MENU
+//#define ALTERNATIVE_MOVE_MENU
 
 // Invert the Y Axis move Direction
 // this does not work if LIST MODE is enabled. To invert y axis in LIST MODE go to setting->feature settings
@@ -138,7 +137,7 @@
 
 // Enable Unified Move Menu
 // Move, Home, Extrude, ABL at one Place and bring Gcode Menu on Home Menu
-//#define UNIFIED_MENU
+#define UNIFIED_MENU
 
 /**
  * Enable list mode in Files menu and settings menu
@@ -194,18 +193,18 @@
  * The format of the custom icon is as follows
  * Bit depth: 24 / 32 bit, Pixel size: 95*95(for TFT35), 70*70(for TFT28/TFT24)
  */
-#define CUSTOM_0_LABEL "Restore EEPROM"
+#define CUSTOM_0_LABEL "EEPROM load"
 #define CUSTOM_0_GCODE "M501\n"
-#define CUSTOM_1_LABEL "Disable Steppers"
+#define CUSTOM_1_LABEL "Motors Off"
 #define CUSTOM_1_GCODE "M84\n"
-#define CUSTOM_2_LABEL "init SD Card"
+#define CUSTOM_2_LABEL "SD init"
 #define CUSTOM_2_GCODE "M21\n"
-#define CUSTOM_3_LABEL "Release Sd Card"
+#define CUSTOM_3_LABEL "SD Release"
 #define CUSTOM_3_GCODE "M22\n"
-//#define CUSTOM_4_LABEL "Custom4"
-//#define CUSTOM_4_GCODE "M105\n"
-//#define CUSTOM_5_LABEL "Custom5"
-//#define CUSTOM_5_GCODE "M105\n"
+#define CUSTOM_4_LABEL "TMC Debug"
+#define CUSTOM_4_GCODE "M122\n"
+// #define CUSTOM_5_LABEL "TMC Debug"
+// #define CUSTOM_5_GCODE "M122\n"
 //#define CUSTOM_6_LABEL "Custom6"
 //#define CUSTOM_6_GCODE "M105\n"
 

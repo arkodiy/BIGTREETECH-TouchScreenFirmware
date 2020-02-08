@@ -325,13 +325,15 @@ void reDrawTime(void)
 void reDrawProgress(u8 progress)
 {	  
   char buf[5];
-  const GUI_RECT percentageRect = {BED_X, TEMP_Y-3*BYTE_HEIGHT, BED_X+5*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
-  //GUI_FillRectColor(progressRect.x0, progressRect.y0, progressX, progressRect.y1,BLUE);
-  //GUI_FillRectColor(progressX, progressRect.y0, progressRect.x1, progressRect.y1,GRAY);
+  //const GUI_RECT percentageRect = {BED_X, TEMP_Y-3*BYTE_HEIGHT, BED_X+10*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
+  const GUI_RECT percentageRect = {progressRect.x0, TEMP_Y-3*BYTE_HEIGHT, BED_X+8*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
+  u16 progressX = map(progress, 0, 100, percentageRect.x0, percentageRect.x1);
+  GUI_FillRectColor(percentageRect.x0, percentageRect.y0, progressX, percentageRect.y1, BLUE);
+  GUI_FillRectColor(progressX, percentageRect.y0, percentageRect.x1, percentageRect.y1, GRAY);
   my_sprintf(buf, "%d%%", progress);
-  //GUI_SetTextMode(GUI_TEXTMODE_TRANS);
+  GUI_SetTextMode(GUI_TEXTMODE_TRANS);
   GUI_DispStringInPrect(&percentageRect, (u8 *)buf);    
-  //GUI_SetTextMode(GUI_TEXTMODE_NORMAL);                     
+  GUI_SetTextMode(GUI_TEXTMODE_NORMAL);                     
 }
 
 extern SCROLL   titleScroll;

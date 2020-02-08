@@ -68,6 +68,7 @@
     #define JP_DISCONNECT           "データ接続"
     #define JP_BAUDRATE_115200      "115200"
     #define JP_BAUDRATE_250000      "250000"
+    #define JP_BAUDRATE_500000      "500000"
     #define JP_RUNOUT_OFF           "Runout OFF"
     #define JP_RUNOUT_ON            "Runout ON"
     #define JP_SMART_RUNOUT_ON      "Smart ON"
