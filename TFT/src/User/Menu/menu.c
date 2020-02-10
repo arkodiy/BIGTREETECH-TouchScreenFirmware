@@ -358,10 +358,12 @@ void loopBackEnd(bool allow_GUI)
   getGcodeFromFile();                 //Get Gcode command from the file to be printed
            
   sendQueueCmd(allow_GUI);                     //Parse and send Gcode commands in the queue
+
+  parseACK();                         //Parse the received slave response information
   
   if (allow_GUI == true)
   {
-    parseACK();                         //Parse the received slave response information
+
   
     parseRcvGcode();                    //Parse the received Gcode from other UART, such as: ESP3D, etc...
 
