@@ -95,7 +95,6 @@ void GUI_DrawPixel(int16_t x, int16_t y, uint16_t color)
   LCD_SetWindow(x, y, x, y);		 	 
   LCD_WR_REG(0x2C);
   LCD_WR_16BITS_DATA(color);	
-  loopBackEnd();
 }
 
 void GUI_DrawPoint(uint16_t x, uint16_t y)

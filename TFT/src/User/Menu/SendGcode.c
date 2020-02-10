@@ -177,7 +177,7 @@ void menuSendGcode(void)
       GUI_DispStringInPrect(&gcodeRect, (u8 *)gcodeBuf);
     }
     
-    loopBackEnd();
+    loopBackEnd(true);
   }
   GUI_RestoreColorDefault();
 }
@@ -255,7 +255,7 @@ void menuTerminal(void)
       lastTerminalIndex += info.bytes;
     }
     
-    loopBackEnd();
+    loopBackEnd(true);
   }
   GUI_RestoreColorDefault();
 }

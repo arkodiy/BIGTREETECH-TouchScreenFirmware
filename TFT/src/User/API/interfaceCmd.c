@@ -144,7 +144,7 @@ void clearCmdQueue(void)
 }
 
 // Parse and send gcode cmd in infoCmd.
-void sendQueueCmd(void)
+void sendQueueCmd(bool allow_GUI)
 {
   if(infoHost.wait == true)    return;  
   if(infoCmd.count == 0)       return;
@@ -157,14 +157,16 @@ void sendQueueCmd(void)
       cmd=strtol(&infoCmd.queue[infoCmd.index_r].gcode[1],NULL,10);
       switch(cmd)
       {
-        case 0:
+        case 0: //include GUI
+          if (allow_GUI == false)  return;
           if (isPrinting()) {
-            setPrintPause(true,true);
+            setPrintPause(true,true); 
           }
           break;
-        case 1:
+        case 1: //include GUI
+          if (allow_GUI == false)  return;
           if (isPrinting()) {
-            setPrintPause(true,true);
+            setPrintPause(true,true); 
           }
           break;
         case 18: //M18/M84 disable steppers
@@ -260,7 +262,8 @@ void sendQueueCmd(void)
           #endif
           break;
 
-        case 117: //M117
+        case 117: //M117 include GUI
+          if (allow_GUI == false)  return;
           statusScreen_setMsg((u8 *)"M117", (u8 *)&infoCmd.queue[infoCmd.index_r].gcode[5]);
           if (infoMenu.menu[infoMenu.cur] != menuStatus)
           {

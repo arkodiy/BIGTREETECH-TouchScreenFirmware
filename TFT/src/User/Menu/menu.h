@@ -112,7 +112,7 @@ void menuDrawListPage(const LISTITEMS *listItems);
 void itemDrawIconPress(uint8_t positon, uint8_t is_press);
 KEY_VALUES menuKeyGetValue(void);
 
-void loopBackEnd(void);
+void loopBackEnd(bool allow_GUI);
 void loopFrontEnd(void);
 void loopProcess (void);
 

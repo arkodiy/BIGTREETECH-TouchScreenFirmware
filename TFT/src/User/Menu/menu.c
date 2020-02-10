@@ -349,17 +349,24 @@ KEY_VALUES menuKeyGetValue(void)
   }
 }
 
-void loopBackEnd(void)
+//get gcode from source (SD, UDISK) and send to slave (and other)
+void loopBackEnd(bool allow_GUI)
 {
+  //allow_GUI == false - restrict to call any draw function (no draw any GUI)
+  //allow_GUI == true - allow to draw GUI (default, original behavior)
+  
   getGcodeFromFile();                 //Get Gcode command from the file to be printed
            
   sendQueueCmd();                     //Parse and send Gcode commands in the queue
   
-  parseACK();                         //Parse the received slave response information
+  if (allow_GUI == true)
+  {
+    parseACK();                         //Parse the received slave response information
   
-  parseRcvGcode();                    //Parse the received Gcode from other UART, such as: ESP3D, etc...
+    parseRcvGcode();                    //Parse the received Gcode from other UART, such as: ESP3D, etc...
 
-  loopCheckHeater();			            //Temperature related settings
+    loopCheckHeater();			            //Temperature related settings
+  }
   
 
 #if defined ONBOARD_SD_SUPPORT && !defined M27_AUTOREPORT
@@ -393,6 +400,6 @@ void loopFrontEnd(void)
 void loopProcess(void)
 {
   temp_Change();
-  loopBackEnd();
+  loopBackEnd(true);
   loopFrontEnd();
 }
