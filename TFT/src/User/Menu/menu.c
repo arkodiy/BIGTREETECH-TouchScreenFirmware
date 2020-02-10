@@ -357,7 +357,7 @@ void loopBackEnd(bool allow_GUI)
   
   getGcodeFromFile();                 //Get Gcode command from the file to be printed
            
-  sendQueueCmd();                     //Parse and send Gcode commands in the queue
+  sendQueueCmd(allow_GUI);                     //Parse and send Gcode commands in the queue
   
   if (allow_GUI == true)
   {
