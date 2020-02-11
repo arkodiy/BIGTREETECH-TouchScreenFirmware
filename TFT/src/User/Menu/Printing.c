@@ -324,7 +324,6 @@ void reDrawTime(void)
 
 void reDrawProgress(u8 progress)
 {
-  return;
   char buf[5];
   //const GUI_RECT percentageRect = {BED_X, TEMP_Y-3*BYTE_HEIGHT, BED_X+10*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
   const GUI_RECT percentageRect = {progressRect.x0, TEMP_Y-3*BYTE_HEIGHT, BED_X+8*BYTE_WIDTH, TEMP_Y-2*BYTE_HEIGHT};
@@ -423,9 +422,9 @@ void menuPrinting(void)
       reDrawTime();
     }
     //Z_AXIS coordinate
-    //static COORDINATE tmp;
-    //coordinateGetAll(&tmp);
-    //GUI_DispFloat(BED_X+BYTE_WIDTH*2,TIME_Y-BYTE_HEIGHT,tmp.axis[Z_AXIS],3,3,LEFT);
+    static COORDINATE tmp;
+    coordinateGetAll(&tmp);
+    GUI_DispFloat(BED_X+BYTE_WIDTH*2,TIME_Y-BYTE_HEIGHT,tmp.axis[Z_AXIS],3,3,LEFT);
     
     key_num = menuKeyGetValue();
     switch(key_num)

@@ -121,7 +121,7 @@ void LCD_WR_REG(u16 data)
 //�������LCD_WR_DATAX��,��ʱ�任�ռ�.
 //data:�Ĵ���ֵ
 void LCD_WR_DATA(u16 data)
-{  
+{
 	LCD_RS_SET;
 	LCD_CS_CLR;
 	DATAOUT(data);
