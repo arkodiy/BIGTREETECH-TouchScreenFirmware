@@ -114,21 +114,31 @@ void LCD_WR_REG(u16 data)
 	LCD_WR_CLR; 
 	LCD_WR_SET; 
  	LCD_CS_SET;
-  loopBackEnd(false);
+  //loopBackEnd(false);
 }
 
 //д���ݺ���
 //�������LCD_WR_DATAX��,��ʱ�任�ռ�.
 //data:�Ĵ���ֵ
 void LCD_WR_DATA(u16 data)
-{
+{  
 	LCD_RS_SET;
 	LCD_CS_CLR;
 	DATAOUT(data);
 	LCD_WR_CLR;
 	LCD_WR_SET;
 	LCD_CS_SET;
-  loopBackEnd(false);
+  static u8 drawint = 0;  
+  if (drawint < 200)
+  {
+    drawint++;    
+  }
+  else
+  {
+    loopBackEnd(false);
+    drawint = 0;
+  }
+  
 }
 
 //��LCD����
